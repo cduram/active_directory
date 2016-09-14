@@ -1,0 +1,12 @@
+# Query for all Active Directory users:
+
+Get-ADUser -Filter {SamAccountName -like "*"} -properties office,whencreated |Select Samaccountname,whenCreated
+
+# Query for users created after a certain date
+#
+# Example:
+#
+#  Get-ADUser -filter {SamAccountName -like '*'} -properties office,whenCreated | ? { $_.whenCreated -ge (get-date "March 16, 2004 " )}|Select Samaccountname,whenCreated
+
+Get-ADUser -filter {SamAccountName -like '*'} -properties office,whenCreated | ? { $_.whenCreated -ge (get-date " " )}|Select Samaccountname,whenCreated
+
