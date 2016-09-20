@@ -1,0 +1,1 @@
+Search-ADAccount -AccountDisabled | where {$_.lastlogondate -lt (get-date).AddDays(-120) -and ($_.DistinguishedName -like "*")}
